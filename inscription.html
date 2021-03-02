@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+	<title>Inscription</title>
+	<meta charset="UTF-8" />
+	<link rel="stylesheet" media="all" href="Exercice10.css">
+	</head>
+	
+	<body>
+		<h1>Inscription</h1>
+		<form method="#" action="#">
+			<label>
+				Civilité : 
+			</label>
+			<input type="radio" id="civilite1" name="civilite" required>Mme
+			<input type="radio" id="civilite2" name="civilite">M.
+			<input type="radio" id="civilite3" name="civilite">Autre
+			<br/>
+			<label>
+				Nom : 
+			</label>
+			<input type="text" id="nom" placeholder="Dupont" pattern="[A-Za-z-]" required>
+			<label>
+				Prénom : 
+			</label>
+			<input type="text" id="prenom" placeholder="José" pattern="[A-Za-z-]" required>
+			<br/>
+			<label>
+				Adresse mail :
+			</label>
+			<input type="email" id="email" name="email" placeholder="XXX@XXX.XXX">
+			<br/>
+			<label>
+				Pseudo : 
+			</label>
+			<input type="text" id="pseudo" name="pseudo" pattern="[A-Za-z0-9]{15}">
+			<br/>
+			<label>
+				Mot de passe :
+			</label>
+			<input type="password" id="mdp" name="mdp">
+			<br/>
+			<label>Confirmez votre mot de passe :</label>
+			<input type="password" id="mdp2" name="mdp2">
+			<p>AJOUTER VERIFICATION QUE LES MOTS DE PASSE SONT LES MEMES</p>
+			<label>
+				Je souhaite m'inscrire à :
+			</label>
+			<input type="radio" class="versionGratuite" id="typeinscription1" name="typeinscription" onchange="versionPayante.disabled='disabled'">La version gratuite
+			<input type="radio" class="versionPayante" id="typeinscription2" name="typeinscription" onchange="versionPayante.disabled=''">La version payante
+			<p>AJOUTER EXPLICATIONS DES VERSIONS AU SURVOL/AVEC UNE PARTIE A DEROULER</p>
+			<fieldset id="versionPayante" disabled="">
+				<label>
+					Option de paiement :
+				</label>
+				<input type="radio" id="option1" name="optionPaiement" onchange="CB.disabled='disabled'">Paypal
+				<input type="radio" id="option2" name="optionPaiement" onchange="CB.disabled=''">Carte Bancaire
+				<fieldset id="CB" disabled="">
+					<label>
+						Nom :
+					</label>
+					<input type="text" placeholder="Dupont">
+					<label>
+						Prénom :
+					</label>
+					<input type="text" placeholder="José">
+					<br/>
+					<label>
+						Numéro de carte :
+					</label>
+					<input type="text" id="NumeroCarte" name="NumeroCarte" placeholder="XXXX XXXX XXXX XXXX">
+					<br/>
+					<label>
+						Date d'expiration :
+					</label>
+					<input type="text" id="DateExpiration" name="cleSecurite" placeholder="XX/XX">
+					<br/>
+					<label>
+						Clé de sécurité :
+					</label>
+					<input type="text" id="cleSecurite" name="cleSecurite" pattern="[0-9]{3}" placeholder="XXX">
+				</fieldset>
+			</fieldset>
+			<br/>
+			<input type="submit" value="Valider">
+		</form>
+	</body>
