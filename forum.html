@@ -27,6 +27,7 @@
 				<a href="decoration">Décoration</a>
 				<div class="diy">
 					<p class="lien"><a href="toile.html" >Toile</a></p>
+					<p class="lien"> <a href="calendrier.html"> Semainier</a></p>
 				</div>
 			</div>
 			<div class="categorie">
@@ -38,11 +39,28 @@
 			<h1>Forum</h1>
 		</div>
 
-		<form id="calcul" action = "ex4.php" method ="get">
-			<p class="diy">
-				<label for="proposition">A vous de nous proposer vos DIY !</label>
-				<input type="text" name="proposition" id="propositon">
-			</p>
+		<form method="#" action="#" class="forum">
+			<div class="accroche">Vous avez des suggestions ? Faites-en nous part !</div> 
+			<label>Votre suggestion concerne :</label>
+				<input type="radio" name="typeSuggestion" id="typeSuggestion1" onchange="tutoEnLigne.disabled=''" required>Un tuto déjà en ligne
+				<input type="radio" name="typeSuggestion" id="typeSuggestion2" onchange="tutoEnLigne.disabled='disabled'">Une idée de tuto
+				<input type="radio" name="typeSuggestion" id="typeSuggestion3" onchange="tutoEnLigne.disabled='disabled'">Autre 
+			<fieldset id="tutoEnLigne" disabled="" class="encadreSuggestion">
+				<select>
+					<optgroup label="Couture">
+						<option value="1">Chouchou</option>
+						<option value="2">Couvercle en tissu</option>
+					</optgroup>
+					<optgroup label="Décoration">
+						<option value="3">Toile</option>
+						<option value="4">Semainier</option>
+					</optgroup>
+				</select>
+			</fieldset>
+			<div><textarea class="texteSuggestion" required></textarea></div>
+			<p>AJOUTER DES PIECES JOINTES</p>
+			<input type="submit" value="Envoyer">
+			<p>Bouton envoie sur suggestion2.html</p>
 		</form>
 		
 		<div id="couleur-2-titre-etape">
@@ -57,7 +75,7 @@
 				<p><a  href="forum.html">A votre tour!</a></p>
 			</div>
 			<div class="colonne-2">
-				<p>S'inscrire</p>
+				<p><a href="connexion.html">S'inscrire</a></p>
 			</div>
 			<div class="colonne-3">
 				<p><a  href="credit.html">Crédit</a></p>
