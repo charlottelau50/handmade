@@ -455,6 +455,25 @@ ul{
 	height:500px;
 }
 
+.forum {
+	margin-left:20px
+}
+
+.forum .encadreSuggestion{
+	border:none;
+}
+
+.forum .texteSuggestion{
+	 height : 350px ;
+	 width : 470px ;
+	 margin : 10px ;
+ }
+
+.forum .accroche{
+	font-size:20px;
+	margin-bottom:20px;
+}
+
 .credit{
 	background-image:url(image/IMG-3423.jpg);
 	background-size:100%;
