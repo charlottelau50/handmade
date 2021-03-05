@@ -72,6 +72,7 @@ body{
 .pageacceuil{
 	display:grid;
 	margin-left : 20px;
+	margin-right: 20px
 }
 
 .pageacceuil h2{
@@ -217,6 +218,7 @@ ul{
 .imgcategorie{
 	padding-top:30px;
 	width:75%;
+	padding-bottom: 20px;
 }
 
 
