@@ -5,11 +5,10 @@ body{
 	margin:0;
 }
 
+/*presentation*/
 .titre1{
 	text-align:center;
 }
-
-
 
 .titre{
 	width:750px;
@@ -18,6 +17,11 @@ body{
 	margin-right:auto;
 	text-align:center;
 }
+
+
+
+
+/*fil presentation*/
 
 .fil .categorie .diy{
 	display:none;
@@ -64,6 +68,12 @@ body{
 	background-color:#F5F3EF;
 }
 
+
+
+
+
+/*page d'acceuil*/
+
 .pageacceuil img{
 	width:150px;
 	height:200px;
@@ -75,11 +85,6 @@ body{
 	margin-right: 20px
 }
 
-.pageacceuil h2{
-	grid-row:1;
-	grid-column:1;
-	margin-bottom:0px
-}
 
 .pageacceuil .couture {
 	grid-row :1;
@@ -133,9 +138,19 @@ body{
 	text-align:center;
 }
 
+
+
+
+/*page d'acceuil des categories*/
+
 .imgcategorie{
 	text-align:center;
 }
+
+
+
+
+/*page de diy*/
 
 #sous-titre{
 	display: grid;
@@ -386,6 +401,8 @@ ul{
 
 
 
+/*espace commentaire*/
+
 .couleur-2-titre-etape{
 	margin-top:50px;
 	margin-bottom:50px;
@@ -455,6 +472,11 @@ ul{
 	height:500px;
 }
 
+
+
+
+ /*page forum*/
+ 
 .forum {
 	margin-left:20px
 }
@@ -473,6 +495,11 @@ ul{
 	font-size:20px;
 	margin-bottom:20px;
 }
+
+
+
+
+/*page credit*/
 
 .credit{
 	background-image:url(image/IMG-3423.jpg);
@@ -510,11 +537,12 @@ ul{
 	background-color:white;
 }
 
-.diy{
-	padding-top:20px;
-	padding-left:10px;
-}
 
+
+
+
+/*bas page*/
+ 
 #couleur-3-bas-page{
 	width:100%;
 	background-color:#838C69;
