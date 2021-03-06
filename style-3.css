@@ -72,7 +72,13 @@ body{
 }
 
 
+/*Valider inscription*/
 
+.inscrip-valider{
+	font-size:25px; 
+	padding-right:20px;
+	font-style:italic;
+}
 
 
 /*page d'acceuil*/
