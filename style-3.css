@@ -66,6 +66,9 @@ body{
 
 .acceuil{
 	background-color:#F5F3EF;
+	padding-top:20px;
+	padding-bottom:20px;
+	padding-left:10px;
 }
 
 
@@ -601,6 +604,8 @@ ul{
 	font-size:20px;
 	padding:10px;
 }
+
+ /*logo fin de page*/
 
 .titre-fin{
 	width:450px;
