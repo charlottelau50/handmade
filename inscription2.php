@@ -211,9 +211,7 @@
                 }
             ?>
 			<input type="password" id="mdp2" name="mdp2">
-            </p>
-
-			<p>AJOUTER VERIFICATION QUE LES MOTS DE PASSE SONT LES MEMES</p>
+		</p>
             <p>
                 <label>
                     Qu'elle est votre theme favori :
@@ -225,7 +223,10 @@
             ?>
                 <select name='theme'>
                     <option value='couture'>Couture </option>
-                    <option value='decoration'>decoration </option>
+		    <option value='decoration'>decoration </option>
+		    <option value='cosmetique'>Cosmetique</option>
+		    <option value='cuisine'>Cuisine </option>
+		    <option value='produit_menager'>produit menager </option>
                 </select>
             </p>
 
