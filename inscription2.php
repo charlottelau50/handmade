@@ -84,7 +84,7 @@
                     $mdp = crypt($mdp, '$6$rounds=5000$14ecoaj87enek720LEPuy62m3h5FedXa$');
                     $req = $bdd->prepare("INSERT INTO utilisateur (themeFavorie, nom, prenom,email,mdp,pseudo,datenaissance) VALUES (?, ?, ?, ?, ?,?,?)");
                     $req->execute(array($theme, $nom, $prenom, $email, $mdp,$pseudo,$datenaissance));
-                    header('Location: inscription.php'); 
+                    header('Location: inscription2.html'); 
                     exit;
                 }
             }
@@ -127,7 +127,7 @@
 		
 		<p>Vous avez déjà un compte?<a href="connexion.html">Connectez-vous ! </a></p>
 
-		<form method="post" action="inscription.php">
+		<form method="post" action="inscription2.php">
         
             <p>
                 <label>
