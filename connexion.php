@@ -18,7 +18,7 @@ if(isset($_POST['connexion'])) {
          $_SESSION['id'] = $userinfo['idutilisateur'];
          $_SESSION['pseudo'] = $userinfo['pseudo'];
          $_SESSION['mail'] = $userinfo['email'];
-         header("Location: projet.php?id=".$_SESSION['id']);
+         header("Location: projet.php");
       } else {
          $erreur = "Mauvais mail ou mot de passe !";
          
