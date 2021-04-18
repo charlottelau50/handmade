@@ -3,8 +3,8 @@ session_start();
 
 $bdd = new PDO('mysql:host=127.0.0.1;dbname=projet', 'root', '');
 
-if(isset($_GET['id']) AND $_GET['id'] > 0) {
-   $getid = intval($_GET['id']);
+if(isset($_SESSION['id']) AND $_SESSION['id'] > 0) {
+   $getid = intval($_SESSION['id']);
    $requser = $bdd->prepare('SELECT * FROM utilisateur WHERE idutilisateur = ?');
    $requser->execute(array($getid));
    $userinfo = $requser->fetch();
