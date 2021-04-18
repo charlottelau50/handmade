@@ -30,7 +30,7 @@
                     $utilisateur = $req->fetch();
                     if(isset($utilisateur['idutilisateur'])){
                         $valid = false;
-                        $err_pseudo = '<p style=\"color:#FF0000\";>Ce pseudo existe déjà !</p>';
+                        $err_pseudo = "<p style=\"color:#FF0000\";>Ce pseudo existe déjà !</p>";
                     }
                 }
 
@@ -43,7 +43,7 @@
                     $utilisateur = $req->fetch();
                     if(isset($utilisateur['idutilisateur'])){
                         $valid = false;
-                        $err_mail = '<p style=\"color:#FF0000\";>Ce mail existe déjà !</p>';
+                        $err_mail = "<p style=\"color:#FF0000\";>Ce mail existe déjà !</p>";
                     }
                 }
 
