@@ -125,7 +125,7 @@
 			<h1>Inscription</h1>
 		</div>
 		
-		<p>Vous avez déjà un compte?<a href="connexion.html">Connectez-vous ! </a></p>
+		<p>Vous avez déjà un compte?<a href="connexion.php">Connectez-vous ! </a></p>
 
 		<form method="post" action="inscription2.php">
         
