@@ -75,7 +75,7 @@ if(isset($_POST['connexion'])) {
 			<h1>Se connecter</h1>
 		</div>
             <h2> Pas encore de compte? <a href='inscription2.php'>inscrivez vous !</a></h2>
-		<form method="post" action="connection.php">
+		<form method="post" action="connexion.php">
 			<label>
 				Adresse-mail : 
 			</label>
