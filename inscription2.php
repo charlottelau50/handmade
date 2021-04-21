@@ -138,7 +138,7 @@
                     echo $err_nom;
                 }
             ?>
-			    <input type="text" id="nom" name="nom" placeholder="Dupont" required>
+			    <input type="text" id="nom" name="nom" placeholder="Dupont" pattern="[a-zA-ZàâæçéèêëîïôœùûüÿÀÂÆÇnÉÈÊËÎÏÔŒÙÛÜŸ-]+" required>
             </p>
 			
             <p>
@@ -150,7 +150,7 @@
                     echo  $err_prenom;
                 }
             ?>
-                <input type="text" id="prenom" name="prenom" placeholder="José"  required>
+                <input type="text" id="prenom" name="prenom" placeholder="José" pattern="[a-zA-ZàâæçéèêëîïôœùûüÿÀÂÆÇnÉÈÊËÎÏÔŒÙÛÜŸ-]+" required>
 			</p>
 
             <?php
@@ -186,7 +186,7 @@
                     echo $err_pseudo;
                 }
             ?>
-			<input type="text" id="pseudo" name="pseudo" >
+			<input type="text" id="pseudo" name="pseudo" pattern="[a-zA-ZàâæçéèêëîïôœùûüÿÀÂÆÇnÉÈÊËÎÏÔŒÙÛÜŸ-]+" >
 			</p>
 
             <p>
@@ -198,7 +198,7 @@
                     echo $err_mdp;
                 }
             ?>
-			<input type="password" id="mdp" name="mdp">
+			<input type="password" id="mdp" name="mdp" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}">
 			</p>
 
             <p>
