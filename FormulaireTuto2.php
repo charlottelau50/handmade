@@ -214,8 +214,19 @@ if(!empty($_POST)){
 		<h1>Nouveau Tuto</h1>
 			
 			<form action="formulaireTuto2.php" method="post" enctype="multipart/form-data">
-        <p>
-                <label>
+        			<p>
+				<label>
+					Catégorie Tuto : 
+				</label>
+
+				<select id="categorie" name="CategorieTuto">
+					<option value="1">Couture</option>
+					<option value="2">Décoration</option>
+					<option value="3">Cosmétique</option>
+					<option value="4">Cuisine</option>
+					<option value="5">Produits ménagers</option>
+				</select><br/> 
+				<label>
 					Titre Tuto : 
 				</label>
 				
