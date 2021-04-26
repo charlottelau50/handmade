@@ -76,7 +76,6 @@ CREATE TABLE IF NOT EXISTS `donner_acces` (
 DROP TABLE IF EXISTS `etape`;
 CREATE TABLE IF NOT EXISTS `etape` (
   `idetape` int(11) NOT NULL AUTO_INCREMENT,
-  `titre` varchar(100) NOT NULL,
   `texte` text NOT NULL,
   `idtuto` int(11) NOT NULL,
   `idphoto` int(11) NOT NULL,
