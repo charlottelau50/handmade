@@ -49,7 +49,7 @@
 					<a  href="FormulaireTuto2.php">A votre tour!</a>
 				</div>
 				<div class="categorie">
-					<a  href="connexion.html">Connexion</a>
+					<a  href="profil.php">Profil</a>
 				</div>
 		</div>
     </body>
