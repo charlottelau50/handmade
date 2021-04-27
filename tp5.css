@@ -1,0 +1,69 @@
+body{
+	font-family:sans-serif;
+}
+
+#partie{
+	display:grid;
+}
+
+.partie-a{
+	grid-column:1;
+	width:200px;
+}
+
+.partie-b{
+	grid-column:2;
+	width:200px;
+}
+
+.saisie{
+	border: solid 2px #0E3C87;
+	border-radius:4px;
+	padding:10px;
+	padding-left:20px; 
+	font-size:1.25em;
+	margin-left:20px;
+}
+
+.titre{
+	margin-left:20px;
+}
+
+.envoie{
+	width:100%;
+	margin-left:0px;
+	height:40px;
+	background-color:#0E3C87;
+	color : white;
+}
+
+
+.credit-card{
+	margin:50px; 
+	background-color:rgb(241,241,239); 
+	border-radius:10px;
+	border-top: solid 20px #0E3C87;
+	padding:30px;
+	color : black;
+	font-family: courier; 
+	text-transform:uppercase;
+}
+
+.credit-card span {
+	display: block;
+}
+
+#paiement{
+	display:grid; 
+}
+
+.informations{
+	grid-column:1;
+	width:430px;
+}
+
+.cb{
+	grid-column:2;
+	margin-left:100px;
+	width:500px;
+}

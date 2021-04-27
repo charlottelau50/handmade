@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<title>Carte bancaire</title>
+	<meta charset="UTF-8">
+	<link href="tp5.css" rel="stylesheet">
+</head>
+
+<body>
+	
+	<form action="tp5.php" method="post">
+	
+	<div id="paiement">
+	
+	<div class="informations">
+
+	<p class="titre"><label>Nom du porteur </label></p>
+	<p><input id="cardName" class="saisie" type="text" size="30" value=""/></p>
+	
+	<p class="titre"><label>Numéro de carte </label></p>
+	<p><input
+	id="cardNumber"
+	class="saisie" 
+	type="text" 
+	size="30"
+	pattern="[0-9]{4} [0-9]{4} [0-9]{4} [0-9]{4}";
+	placeholder="0000 0000 0000 0000"
+	title="Format : 4x4 chiffres séparés par un espace : 0000 0000 0000 0000"
+	/></p>
+	
+	<div id="partie">
+	<div class="partie-a">
+	<p class="titre"><label>Date de validité </label></p>
+	<p><input id="expiration" class="saisie" type="text" size="5"/></p>
+	</div>
+	
+	<div class="partie-b">
+	<p class="titre"><label>Code de sécurité </label></p>
+	<p><input class="saisie" type="text" size="4"/></p>
+	</div>
+	</div>
+	
+	<input class="envoie" type="submit" value="Payer"/>
+	
+	</div>
+	
+	<div class="cb">
+	
+	 <div class="credit-card">
+		<span id="card-name-display"></span>
+		<span id="card-number-display"></span>
+		<span id="expiration-display"></span>
+	</div>
+	
+	</div>
+	
+	</div>
+	
+	
+	</form>
+	
+<script >
+	var cardNameJS = document.getElementById('cardName');
+	cardNameJS.onkeyup = function() {
+		
+		var cdDisplay = document.getElementById('card-name-display');
+		cdDisplay.innerHTML = cardNameJS.value;
+	
+	}
+	
+	var cardNumberJS = document.getElementById('cardNumber');
+	cardNumberJS.onkeyup = function() {
+		
+		var cdDisplay = document.getElementById('card-number-display');
+		cdDisplay.innerHTML = cardNumberJS.value;
+	
+	}
+
+
+	var cardExpiration = document.getElementById('expiration');
+	cardExpiration.onkeyup = function(){
+		// lecture entrées
+		// traitement
+		// écriture sorties
+		// lecture entrées
+		var expirationMonth = (cardExpiration.value).slice(0,2);
+		var expirationYear = (cardExpiration.value).slice(3,5);
+		
+		if (expirationMonth.length==2) {
+			 var month = expirationMonth.valueOf();
+			 if (month <1 || month>12)
+				expirationMonth = "**" ;
+		}
+		 if (expirationYear.length==2) {
+			 var year = expirationYear.valueOf();
+			 if (year <19 || year>24)
+				expirationYear = "**";
+		 }
+		 
+		 if (cardExpiration.value.length == 5) {
+			cardExpiration.value = expirationMonth +"/"+ expirationYear;
+		}
+		
+		var cdDisplay = document.getElementById('expiration-display');
+		cdDisplay.innerHTML = cardExpiration.value;
+	}
+
+
+
+
+
+
+</script >
+
+	
+	
+
+</body>
+
+</html>
