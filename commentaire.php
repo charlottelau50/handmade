@@ -35,8 +35,8 @@
                     $contenucom = (String) trim($contenucom);
 
                     if($valid){
-                        $req = $bdd->insert("INSERT INTO commentaire (note_com, dateCommentaire, contenucom, idutilisateur, idtuto) VALUES (?, ?, ?, ?, ?)", 
-                        $req->execute(array($note_com, $dateCommentaire, $contenucom, $_SESSION['idutilisateur'], $idtuto)));
+                        $req = $bdd->insert("INSERT INTO commentaire (note_com, dateCommentaire, contenucom, idutilisateur, idtuto) VALUES (?, ?, ?, ?, ?)"); 
+                        $req->execute(array($note_com, $dateCommentaire, $contenucom, $_SESSION['idutilisateur'], $idtuto));
                         header('Location: comment.php'); 
                         exit;
                     }
