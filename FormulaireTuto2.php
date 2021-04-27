@@ -3,8 +3,8 @@
 session_start();
 
 //traitement des donnes du formulaire en php pour rentré des tutos dans la base 
-/*il manque le faite de recuperer l'idantifant de l'utilistauer on le ferras avec session 
-+ il faut que cette page soit accessible de l'acceuil du site
+/*
+ il faut qu'on decide ou cette page seras accesible directement sur lacceuil ou dans le fil ou dans profil 
 */
 
 
@@ -256,7 +256,7 @@ if(!empty($_POST)){
 		<h1>Nouveau Tuto</h1>
 			
 			<form action="formulaireTuto2.php" method="post" enctype="multipart/form-data">
-				<input type="hidden" name=\"max_file_size" value="50000"/>
+				<input type="hidden" name="max_file_size" value="50000"/>
         			<p>
 				<label>
 					Catégorie Tuto : 
