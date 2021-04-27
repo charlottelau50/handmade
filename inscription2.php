@@ -20,6 +20,8 @@
                 $mdp = (String) trim($mdp);
                 $nom = (String) trim($nom);
                 $prenom = (String) trim($prenom);
+		$typeinscription=(String) trim($typeinscription);
+                $optionPaiement=(String) trim($optionPaiement);
 
                 if(empty($pseudo)){
                     $valid = false;
@@ -79,12 +81,36 @@
                     $valid = false;
                     $err_datenaissance = "<p style=\"color:#FF0000\";>Veuillez renseigner ce champs !</p>";
                 }
+		if(empty($typeinscription)){
+                    $valid = false;
+                    $err_typeinscription = "<p style=\"color:#FF0000\";>Veuillez renseigner ce champs !</p>";
+                }
 
                 if($valid){
                     $mdp = crypt($mdp, '$6$rounds=5000$14ecoaj87enek720LEPuy62m3h5FedXa$');
                     $req = $bdd->prepare("INSERT INTO utilisateur (themeFavorie, nom, prenom,email,mdp,pseudo,datenaissance) VALUES (?, ?, ?, ?, ?,?,?)");
                     $req->execute(array($theme, $nom, $prenom, $email, $mdp,$pseudo,$datenaissance));
-                    header('Location: inscription2.html'); 
+                    
+			
+		    $req=$bdd->prepare("SELECT idutilisateur FROM utilisateur where email=?");
+                    $req->execute(array($email));
+                    $utilisateur=$req->fetch();
+                    $idutilisateur=$utilisateur['idutilisateur'];
+                    $req -> closecursor();
+
+                    $date=date("Y-m-d");
+                    if(!empty($optionPaiement)){
+                        $req=$bdd->prepare("INSERT INTO souscrire(idabonnement,idutilisateur,typePaiment,dateDebut) VALUES(?,?,?,?)");
+                        $req->execute(array($typeinscription,$idutilisateur,$optionPaiement,$date));
+                        
+
+                    }
+                    else{
+                        $req=$bdd->prepare("INSERT INTO souscrire(idabonnement,idutilisateur,dateDebut) VALUES(?,?,?)");
+                        $req->execute(array($typeinscription,$idutilisateur,$date));
+                       
+                    }
+		    header('Location: inscription2.html'); 
                     exit;
                 }
             }
@@ -205,6 +231,54 @@
 		    <option value='produit_menager'>produit menager </option>
                 </select>
             </p>
+		
+		<label>
+				Je souhaite m'inscrire à :
+			</label>
+			<input type="radio" class="versionGratuite" id="typeinscription1" name="typeinscription" value="1" onchange="versionPayante.disabled='disabled' ">La version gratuite
+			<input type="radio" class="versionPayante" id="typeinscription2" name="typeinscription" value="3" onchange="versionPayante.disabled=''">La version payante
+			<p>AJOUTER EXPLICATIONS DES VERSIONS AU SURVOL/AVEC UNE PARTIE A DEROULER</p>
+			
+            <?php
+                if(isset($err_typeinscription)){
+                    echo $err_typeinscription;
+                }
+            ?>
+
+                <fieldset id="versionPayante" disabled="">
+				<label>
+					Option de paiement :
+				</label>
+				<input type="radio" id="option1" value="paypal" name="optionPaiement" onchange="CB.disabled='disabled'">Paypal
+				<input type="radio" id="option2" value="cb" name="optionPaiement" onchange="CB.disabled=''">Carte Bancaire
+
+            
+				<fieldset id="CB" disabled="">
+					<label>
+						Nom :
+					</label>
+					<input type="text" placeholder="Dupont" pattern="[a-zA-ZàâæçéèêëîïôœùûüÿÀÂÆÇnÉÈÊËÎÏÔŒÙÛÜŸ-]+">
+					<label>
+						Prénom :
+					</label>
+					<input type="text" placeholder="José" pattern="[a-zA-ZàâæçéèêëîïôœùûüÿÀÂÆÇnÉÈÊËÎÏÔŒÙÛÜŸ-]+">
+					<br/>
+					<label>
+						Numéro de carte :
+					</label>
+					<input type="text" id="NumeroCarte" name="NumeroCarte"  placeholder="XXXX XXXX XXXX XXXX " pattern=""[0-9]{4} [0-9]{4} [0-9]{4} [0-9]{4}"">
+					<br/>
+					<label>
+						Date d'expiration :
+					</label>
+					<input type="text" id="DateExpiration" name="cleSecurite" placeholder="XX/XX" pattern="[0-9]{2}\/[0-9]{2}">
+					<br/>
+					<label>
+						Clé de sécurité :
+					</label>
+					<input type="text" id="cleSecurite" name="cleSecurite" pattern="[0-9]{3}" placeholder="XXX">
+				</fieldset>
+			</fieldset>
 
 			<input type="submit" value="Valider" name="inscription">
 
