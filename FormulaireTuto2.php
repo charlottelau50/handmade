@@ -1,9 +1,10 @@
 
 <?php
+session_start();
+
 //traitement des donnes du formulaire en php pour rentré des tutos dans la base 
-/*il manque le faite de recuperer l'idnatifant de l'utilistauer on le ferras avec session 
+/*il manque le faite de recuperer l'idantifant de l'utilistauer on le ferras avec session 
 + il faut que cette page soit accessible de l'acceuil du site
- +il faut mettre une verification pour les photos comme dans le site du prof 
 */
 
 
@@ -17,6 +18,10 @@ catch(Exception $e)
         die('Erreur : '.$e->getMessage());
 }
 
+//on recupere l'idantifiant de l'utilisateur
+if(isset($_SESSION['id']) AND $_SESSION['id'] > 0) {
+   $getid = intval($_SESSION['id']);
+}
 
 //les fonctions
 
@@ -177,7 +182,7 @@ if(!empty($_POST)){
                 
                 $date=date("Y-m-d");
                 $ajout=$bdd->prepare("INSERT INTO tuto(dateCreation,theme,titreTuto,textpresentation,idutilisateur) VALUES(?,?,?,?,?)");
-                $ajout->execute(array($date,$theme,$titretuto,$textpresentation,6));
+                $ajout->execute(array($date,$theme,$titretuto,$textpresentation,$getid));
                 $ajout->closeCursor();
                 
                 
