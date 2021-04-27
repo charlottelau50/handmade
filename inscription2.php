@@ -100,7 +100,7 @@
 
                     $date=date("Y-m-d");
                     if(!empty($optionPaiement)){
-                        $req=$bdd->prepare("INSERT INTO souscrire(idabonnement,idutilisateur,typePaiment,dateDebut) VALUES(?,?,?,?)");
+                        $req=$bdd->prepare("INSERT INTO souscrire(idabonnement,idutilisateur,typePaiement,dateDebut) VALUES(?,?,?,?)");
                         $req->execute(array($typeinscription,$idutilisateur,$optionPaiement,$date));
                         
 
