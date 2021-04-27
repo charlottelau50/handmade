@@ -11,7 +11,7 @@
         <?php
             session_start();
 
-            $bdd = new PDO('mysql:host=localhost;dbname=projet;charset=utf8', 'root', '');
+            include("fonctionBD.php");
 
             $req_commentaire = $bdd->query("SELECT c.*, u.*, DATE_FORMAT(c.dateCommentaire, 'Le %d/%m/%Y') as date_c FROM commentaire c, utilisateur u, tuto t WHERE c.idutilisateur = u.idutilisateur AND t.idtuto = c.idtuto ORDER BY C.dateCommentaire DESC" ); 
 
@@ -35,8 +35,8 @@
                     $contenucom = (String) trim($contenucom);
 
                     if($valid){
-                        $req = $bdd->prepare("INSERT INTO commentaire (note_com, dateCommentaire, contenucom, idutilisateur, idtuto) VALUES (?, ?, ?, ?, ?)");
-                        $req->execute(array($note_com, $dateCommentaire, $contenucom, $_SESSION['idutilisateur'], $idtuto));
+                        $req = $bdd->insert("INSERT INTO commentaire (note_com, dateCommentaire, contenucom, idutilisateur, idtuto) VALUES (?, ?, ?, ?, ?)", 
+                        $req->execute(array($note_com, $dateCommentaire, $contenucom, $_SESSION['idutilisateur'], $idtuto)));
                         header('Location: comment.php'); 
                         exit;
                     }
