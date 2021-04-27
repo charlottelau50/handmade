@@ -20,6 +20,20 @@
             if(!empty($_POST)){
                 extract($_POST); 
                 $valid = true; 
+	        if (isset($_POST['affiche'])){
+                if($idtuto2=='tous'){
+                    $req_commentaire = $bdd->query("SELECT c.*, u.*, DATE_FORMAT(c.dateCommentaire, 'Le %d/%m/%Y') as date_c FROM commentaire c, utilisateur u, tuto t WHERE c.idutilisateur = u.idutilisateur AND t.idtuto = c.idtuto  ORDER BY C.dateCommentaire DESC" ); 
+
+                    $req_commentaire = $req_commentaire->fetchAll();
+        
+                }
+                else{
+                    $req_commentaire = $bdd->query("SELECT c.*, u.*, DATE_FORMAT(c.dateCommentaire, 'Le %d/%m/%Y') as date_c FROM commentaire c, utilisateur u, tuto t WHERE c.idutilisateur = u.idutilisateur AND t.idtuto = c.idtuto AND c.idtuto=? ORDER BY C.dateCommentaire DESC", array($idtuto2) ); 
+
+                    $req_commentaire = $req_commentaire->fetchAll();
+
+                }
+            }
 
                 if (isset($_POST['ajout-commentaire'])){
                     $contenucom = (String) trim($contenucom);
@@ -91,6 +105,21 @@
 
                     <p class="envoi-comm"><input class="envoi-comm-style" name="ajout-commentaire" type="submit" value="Envoyer"></p>
                 </form>
+		    
+		<form method="post" action="commentaire.php" class="formulaireSuggestions">
+                <?php
+                        echo "<select name='idtuto2'>";
+                        $bdd = new PDO('mysql:host=localhost;dbname=projet;charset=utf8', 'root', '');
+                        $req=$bdd->query("SELECT titreTuto, idtuto FROM tuto ORDER BY theme");
+                        while($tuto2=$req->fetch()){
+                            $titreTuto2=$tuto2['titreTuto'];
+                            $idtuto2=$tuto2['idtuto'];
+                            echo "<option value='$idtuto2'>$titreTuto2</option>";
+                        }
+                        echo "<option value='tous'>tous</option>";
+                        echo "</select>"
+                        ?>
+                    <input type="submit" name="affiche" value="afficher">
 
 
                 <table class="liste_commentaire">
