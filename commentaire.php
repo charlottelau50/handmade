@@ -62,7 +62,7 @@
 
                 <p class="comm-1">Donnez-nous votre avis </p>
 
-                <form method="post" action="comment.php" class="formulaireSuggestions">
+                <form method="post" action="commentaire.php" class="formulaireSuggestions">
 
                     <p class="titre-comm"><label>Nom du tuto :</label></p>
                      <?php
