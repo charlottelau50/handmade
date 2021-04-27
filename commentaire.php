@@ -34,10 +34,12 @@
 
                     $contenucom = (String) trim($contenucom);
 
-                    if($valid){
-                        $req = $bdd->insert("INSERT INTO commentaire (note_com, dateCommentaire, contenucom, idutilisateur, idtuto) VALUES (?, ?, ?, ?, ?)"); 
-                        $req->execute(array($note_com, $dateCommentaire, $contenucom, $_SESSION['idutilisateur'], $idtuto));
-                        header('Location: comment.php'); 
+                   if($valid){
+                        $dateCommentaire=date("Y-m-d");
+                        $req=$bdd->insert("INSERT INTO commentaire (note_com, dateCommentaire, contenucom, idutilisateur,idtuto) VALUES ( ?, ?, ?, ?,?)" ,array($note_com, $dateCommentaire, $contenucom, $_SESSION['id'],$idtuto)); 
+                        header('Location: commentaire.php'); 
+                        
+
                         exit;
                     }
 
@@ -63,16 +65,17 @@
                 <form method="post" action="comment.php" class="formulaireSuggestions">
 
                     <p class="titre-comm"><label>Nom du tuto :</label></p>
-                    <select name="idtuto">
-                        <optgroup label="Couture">
-                            <option value="Chouchou">Chouchou</option>
-                            <option value="Couvercle en tissu">Couvercle en tissu</option>
-                        </optgroup>
-                        <optgroup label="Décoration">
-                            <option value="Toile">Toile</option>
-                            <option value="Semainier">Semainier</option>
-                        </optgroup>
-		            </select>
+                     <?php
+                        echo "<select name='idtuto'>";
+                        $bdd = new PDO('mysql:host=localhost;dbname=projet;charset=utf8', 'root', '');
+                        $req=$bdd->query("SELECT titreTuto, idtuto FROM tuto ORDER BY theme");
+                        while($tuto=$req->fetch()){
+                            $titreTuto=$tuto['titreTuto'];
+                            $idtuto=$tuto['idtuto'];
+                            echo "<option value='$idtuto'>$titreTuto</option>";
+                        }
+                        echo "</select>"
+                        ?>
 
                     <p class="titre-comm"><label>Ma note :</label></p>
                     <p class="note-commentaire">
