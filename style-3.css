@@ -412,6 +412,7 @@ ul{
 
 
 
+
 /*espace commentaire*/
 
 .couleur-2-titre-etape{
@@ -459,6 +460,10 @@ ul{
 	padding-left:20px;
 }
 
+.note-commentaire{
+	padding-left: 20px;
+}
+
 .texte-comm{
 	height : 150px ;
 	 width : 500px ;
@@ -483,30 +488,46 @@ ul{
 	height:500px;
 }
 
-
-
-
- /*page forum*/
- 
-.forum {
-	margin-left:20px
+.liste_commentaire{
+	background-color: white;
+	margin:40px;
+	margin-left: auto;
+	margin-right: auto;
+	width:90%;
+	text-align:center;
+	border: solid 1px black;
 }
 
-.forum .encadreSuggestion{
-	border:none;
+.list_com_personne{
+	padding:15px;
+	height:20px;
+	width:15%;
+	border: solid 1px black;
 }
 
-.forum .texteSuggestion{
-	 height : 350px ;
-	 width : 470px ;
-	 margin : 10px ;
- }
-
-.forum .accroche{
-	font-size:20px;
-	margin-bottom:20px;
+.list_com_tuto{
+	height:20px;
+	width:20%;
+	border: solid 1px black;
 }
 
+.list_com_note{
+	height:20px;
+	width:10%;
+	border: solid 1px black;
+}
+
+.list_com_contenu{
+	height:20px;
+	width:40%;
+	border: solid 1px black;
+}
+
+.list_com_date{
+	height:20px;
+	width:15%;
+	border: solid 1px black;
+}
 
 
 
