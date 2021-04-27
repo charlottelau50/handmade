@@ -52,6 +52,37 @@ function extraireidmateriel($nom){
     return $materiel['idmateriel'];
 }
 
+function photovalide($photo){
+    
+    /*on regarde si le fichier envoye est une image*/
+    $subject = $photo['name'];
+    $pattern = '/(gif|jpg|png)$/i';
+    $a=0;
+ 
+    $matches=preg_match($pattern, $subject, $tabMatches);
+    if ($matches==0)
+        {
+        return 'Ce fichier n\'est pas une image reconnue';
+        }
+    else{
+            $a++;
+        }
+ 
+    /*on verifie que le fichier envoye n'a pas un poid plus gros que celui defini*/
+    $max=$_POST["max_file_size"];
+    if (filesize($photo['tmp_name']) >$max)
+    {
+    return 'image trop grande, limitée à '.$max/1000 .'Ko';
+    }
+    else{
+        $a++;
+    }
+
+    if ($a==2){
+        return true;
+    }
+}
+
 //verification qu'un formulaire a ete envoyer + on definis nos variable qui vienne du formulaire 
 if(!empty($_POST)){
         extract($_POST);
@@ -124,13 +155,18 @@ if(!empty($_POST)){
             if(empty($TexteEtape1)){
                 $valid = false;
                 $err_etape = "<p style=\"color:#FF0000\";>Veuillez renseigner ce champs une etape minimum est requise!</p>";
-                echo $err_etape;
+                
             }
 
             if(empty($Materiel_1)){
                 $valid = false;
                 $err_materiel = "<p style=\"color:#FF0000\";>Veuillez renseigner ce champs un materiel minimum est requis!</p>";
-                echo $err_materiel;
+               
+            }
+	
+	    if (true!==(photovalide($_FILES['photopresentation']))){
+                $valid=false;
+                $err_photo=photovalide($_FILES['photopresentation']);
             }
 
             //si tous va bien on commence a introduire dans la base 
@@ -161,7 +197,8 @@ if(!empty($_POST)){
 
                 //ajout d'une photo et de son etape 
                 $compteur=1;
-                while (!empty($_FILES['PhotoEtape'.$compteur.'']['name']) AND !empty(${'TexteEtape'.$compteur})){
+                while (!empty($_FILES['PhotoEtape'.$compteur.'']['name']) AND !empty(${'TexteEtape'.$compteur}) AND true==(photovalide($_FILES['PhotoEtape'.$compteur.''])))
+		{
                     
                     
                     inserphoto($_FILES['PhotoEtape'.$compteur.'']['name']);
@@ -214,6 +251,7 @@ if(!empty($_POST)){
 		<h1>Nouveau Tuto</h1>
 			
 			<form action="formulaireTuto2.php" method="post" enctype="multipart/form-data">
+				<input type="hidden" name=\"max_file_size" value="50000"/>
         			<p>
 				<label>
 					Catégorie Tuto : 
@@ -248,6 +286,11 @@ if(!empty($_POST)){
 				</label><br />
 				
                 <input type="file" name="photopresentation" /><br />
+				<?php
+					if(isset($err_photo)){
+                    			echo $err_photo;
+                			}
+            				?>
 				
 				<label>
 					Texte présentation :
