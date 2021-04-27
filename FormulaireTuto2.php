@@ -219,13 +219,19 @@ if(!empty($_POST)){
 					Catégorie Tuto : 
 				</label>
 
-				<select id="categorie" name="CategorieTuto">
-					<option value="1">Couture</option>
-					<option value="2">Décoration</option>
-					<option value="3">Cosmétique</option>
-					<option value="4">Cuisine</option>
-					<option value="5">Produits ménagers</option>
+				<select id="theme" name="theme">
+					<option value="couture">Couture</option>
+					<option value="decoration">Décoration</option>
+					<option value="cosmetique">Cosmétique</option>
+					<option value="cuisine">Cuisine</option>
+					<option value="produit_menagers">Produits ménagers</option>
 				</select><br/> 
+					<?php
+                			if(isset($err_theme)){
+                    			echo $err_theme;
+                			}
+            				?>
+					
 				<label>
 					Titre Tuto : 
 				</label>
@@ -236,16 +242,7 @@ if(!empty($_POST)){
                     echo $err_titre;
                 }
             ?>
-				<label>
-					theme Tuto : 
-				</label>
-				
-				<input type="text" name="theme"/><br/>
-				<?php
-                if(isset($err_theme)){
-                    echo $err_theme;
-                }
-            ?>
+
 				<label>
 					Photo présentation : 
 				</label><br />
