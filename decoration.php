@@ -49,7 +49,7 @@
 			<div class="liste-tuto">
 				<?php
 					include("fonctionBD.php");
-					$req=$bdd->query("SELECT tuto.idtuto, titreTuto, chemin FROM tuto, photo where theme='couture' AND tuto.idtuto=photo.idtuto");
+					$req=$bdd->query("SELECT tuto.idtuto, titreTuto, chemin FROM tuto, photo where theme='decoration' AND tuto.idtuto=photo.idtuto");
 					while($tuto=$req->fetch()){
 						$compteur=1;
 						$idtuto=$tuto['idtuto'];
