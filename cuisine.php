@@ -42,7 +42,7 @@
 
 		
 		<div class="couture">
-			<img src="image/handmade.jpg" class="imgcategorie" alt="img-deco">
+			<img src="image/cuisine-1.jpg" class="imgcategorie" alt="img-couture">
 		</div>
 		
 		<div class="presentation-tuto">
