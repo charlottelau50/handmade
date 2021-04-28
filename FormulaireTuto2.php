@@ -1,4 +1,3 @@
-
 <?php
 session_start();
 include ('fil.php');
@@ -177,7 +176,7 @@ if(!empty($_POST)){
             }
            
 
-            //si tous va bien on commence a introduire dans la base 
+            //si tout va bien on commence à introduire dans la base 
             
             if($valid){
                 //ajout d'un tuto 
@@ -250,25 +249,16 @@ if(!empty($_POST)){
 	<head>
 	<title>Ajouter un tuto</title>
 	<meta charset="UTF-8" />
-	<link rel="stylesheet" media="all" href="#">
+	<link rel="stylesheet" media="all" href="style-3.css">
 	
 	</head>
 	<body>
 		<h1>Nouveau Tuto</h1>
 			
-			<form action="formulaireTuto2.php" method="post" enctype="multipart/form-data">
-            <input type="hidden" name="max_file_size" value="50000"/>
+		<form action="formulaireTuto2.php" method="post" enctype="multipart/form-data">
+        <input type="hidden" name="max_file_size" value="50000"/>
         <p>
-                <label>
-					Titre Tuto : 
-				</label>
-				
-				<input type="text" name="titretuto"/><br/>
-				<?php
-                if(isset($err_titre)){
-                    echo $err_titre;
-                }
-            ?>
+                
 				<select id="theme" name="theme">
 					<option value="couture">Couture</option>
 					<option value="decoration">Décoration</option>
@@ -281,263 +271,330 @@ if(!empty($_POST)){
                     			echo $err_theme;
                 			}
             		?>
-				<label>
-					Photo présentation : 
-				</label><br />
-				
-                <input type="file" name="photopresentation" /><br />
-
-                <?php
-					if(isset($err_photo)){
+            <div id="sous-titre">
+            	<div class="gauche">
+					<label>
+						Photo présentation : 
+					</label>
+					<input type="file" name="photopresentation" />
+               		<?php
+						if(isset($err_photo)){
                     			echo $err_photo;
+                				}
+            		?>
+				</div>
+
+				<div class= "droite">
+					<div class="titre-h1">
+						<label>
+							<h1>Titre Tuto :</h1> 
+						</label>
+						<input type="text" name="titretuto"/><br/>
+						<?php
+            	    		if(isset($err_titre)){
+                	    	echo $err_titre;
                 			}
-            				?>
-				
-				<label>
-					Texte présentation :
-				</label>
-				
-				<textarea  name="textpresentation"
-          rows="5" cols="33">
-				</textarea>
-		  <?php
-                if(isset($err_textepresentation)){
-                    echo $err_textepresentation;
-                }
-            ?>
+           		 		?>
+           		 	</div>
 
-				
-				<label>
-					Texte matériel nécessaire :
-				</label>
+					<div class="titre-date">
+						<?php echo date('d/m/Y')?>
+					</div>
 
-				<ul>
-					<li>
-						<input type="text" name="Materiel_1" placeholder="nom du materiel"/>  <input type="text" name="quantite_1" placeholder="quantité"/>
-					</li><br/>
+          		<div class="premier">
+					<label>
+						Présentation :
+					</label>
+					<textarea  name="textpresentation" rows="3" cols="33">
+					</textarea>
+		 			 <?php
+                		if(isset($err_textepresentation)){
+                  	  	echo $err_textepresentation;
+               		 	}
+           			 ?>
+           		</div>
 
-					<li>
-						<input type="text" name="Materiel_2" placeholder="nom du materiel"/>  <input type="text" name="quantite_2" placeholder="quantité"/>
-					</li><br/>
+				<div class="liste">
+					<label>
+						<p class="titre-materiel">Matériel nécessaire :</p>
+					</label>
 
-					<li>
-						<input type="text" name="Materiel_3" placeholder="nom du materiel"/>    <input type="text" name="quantite_3" placeholder="quantité"/>
-					</li><br/>
+					<ul>
+						<li>
+							<input type="text" name="Materiel_1" placeholder="Nom du materiel"/>  <input type="text" name="quantite_1" placeholder="Quantité"/>
+						</li>
 
-					<li>
-						<input type="text" name="Materiel_4" placeholder="nom du materiel"/>    <input type="text" name="quantite_4" placeholder="quantité"/>
-					</li><br/>
+						<li>
+							<input type="text" name="Materiel_2" placeholder="Nom du materiel"/>  <input type="text" name="quantite_2" placeholder="Quantité"/>
+						</li>
 
+						<li>
+							<input type="text" name="Materiel_3" placeholder="Nom du materiel"/>    <input type="text" name="quantite_3" placeholder="Quantité"/>
+						</li>
 
-					<li>
-						<input type="text" name="Materiel_5" placeholder="nom du materiel"/>      <input type="text" name="quantite_5" placeholder="quantité"/>
-					</li><br/>
-
-					<li>
-						<input type="text" name="Materiel_6" placeholder="nom du materiel"/>     <input type="text" name="quantite_6" placeholder="quantité"/>
-					</li><br/>
-
-					<li>
-						<input type="text" name="Materiel_7" placeholder="nom du materiel"/>    <input type="text" name="quantite_7" placeholder="quantité"/>
-					</li><br/>
-
-					<li>
-						<input type="text" name="Materiel_8" placeholder="nom du materiel"/>       <input type="text" name="quantite_8" placeholder="quantité"/>
-					</li><br/>
-
-					<li> 
-						<input type="text" name="Materiel_9" />      <input type="text" name="quantite_9" placeholder="quantité"/>
-					</li><br/>
+						<li>
+							<input type="text" name="Materiel_4" placeholder="Nom du materiel"/>    <input type="text" name="quantite_4" placeholder="Quantité"/>
+						</li>
 
 
-					<li> 
-						<input type="text" name="Materiel_10"/>      <input type="text" name="quantite_10" placeholder="quantité"/>
-					</li><br/>
+						<li>
+							<input type="text" name="Materiel_5" placeholder="Nom du materiel"/>      <input type="text" name="quantite_5" placeholder="Quantité"/>
+						</li>
 
-					<li> 
-						<input type="text" name="Materiel_11" />      <input type="text" name="quantite_11" placeholder="quantité"/>
-					</li><br/>
-				</ul>
+						<li>
+							<input type="text" name="Materiel_6" placeholder="Nom du materiel"/>     <input type="text" name="quantite_6" placeholder="Quantité"/>
+						</li>
 
-				<?php
-                if(isset($err_materiel)){
-                    echo $err_materiel;
-                }
-            	?>
+						<li>
+							<input type="text" name="Materiel_7" placeholder="Nom du materiel"/>    <input type="text" name="quantite_7" placeholder="Quantité"/>
+						</li>
 
-				<label>
-					Photo matériel nécessaire : 
-				</label><br />
-				
-                <input type="file" name="PhotoListeMateriel" /><br />
-		
+						<li>
+							<input type="text" name="Materiel_8" placeholder="Nom du materiel"/>       <input type="text" name="quantite_8" placeholder="Quantité"/>
+						</li>
+
+						<li> 
+							<input type="text" name="Materiel_9" placeholder="Nom du materiel" />      <input type="text" name="quantite_9" placeholder="Quantité"/>
+						</li>
 
 
-				<label>
-					Texte Etape 1 : 
-				</label>
-				
-				<input type="text" name="TexteEtape1"><br/>
-				
-				<label>
+						<li> 
+							<input type="text" name="Materiel_10" placeholder="Nom du materiel"/>      <input type="text" name="quantite_10" placeholder="Quantité"/>
+						</li>
+
+						<li> 
+							<input type="text" name="Materiel_11" placeholder="Nom du materiel" />      <input type="text" name="quantite_11" placeholder="Quantité"/>
+						</li>
+					</ul>
+					<?php
+                		if(isset($err_materiel)){
+                    	echo $err_materiel;
+                		}
+            		?>
+				</div>
+			</div>
+		</div>
+
+		<div class="couleur">
+			<img class="image" src="image/grand-titre-8.jpg" alt="grand-titre"/>
+		</div>
+
+		<div id="etape">
+			<div class="num1">
+				<p>
+					<label>
 					Photo Etape 1 : 
-				</label><br />
+					</label>
+
+					<input type="file" name="PhotoEtape1" />
+				</p>
+				<p>
+					<label>
+					Texte Etape 1 : 
+					</label>
+
+					<textarea class="texteEtape" type="text" name="TexteEtape1"></textarea>
+				</p>
+			</div>
 				
-                <input type="file" name="PhotoEtape1" /><br />
-				
-				
-				
-				<label>
+			<div class="num2">
+				<p>
+					<label>
+					Photo Etape 2 : 
+					</label>
+
+					<input type="file" name="PhotoEtape2" />
+				</p>
+				<p>
+					<label>
 					Texte Etape 2 : 
-				</label>
-				
-				<input type="text" name="TexteEtape2"/><br/>
-				
-				<label>
-					Photo Etape 2 : <br />
-                </label>
-				
-				<input type="file" name="PhotoEtape2" /><br />
-				
+					</label>
 
-				<label>
-					Texte Etape 3 : 
-				</label>
+					<textarea class="texteEtape" type="text" name="TexteEtape2"></textarea>
+				</p>
+			</div>
 				
-				<input type="text" name="TexteEtape3"/><br/>
-				
-				<label> 
+			<div class="num3">	
+				<p>
+					<label> 
 					Photo Etape 3 : 
-				</label><br />
+					</label>
 				
-                <input type="file" name="PhotoEtape3" /><br />
+                	<input type="file" name="PhotoEtape3" />
+                </p>			
+				<p>
+					<label>
+					Texte Etape 3 : 
+					</label>
 				
-
-				<label>
+					<textarea class="texteEtape" type="text" name="TexteEtape3"></textarea>
+				</p>
+            </div>
+				
+            <div class="num4">
+            	<p>
+					<label>
+					Photo Etape 4 : 
+					</label>
+				
+                	<input type="file" name="PhotoEtape4" />
+            	</p>
+				<p>
+					<label>
 					Texte Etape 4 : 
-				</label>
+					</label>
 				
-				<input type="text" name="TexteEtape4"/><br/>
-				
-				<label>
-					Photo Etape 4 : <br />
-				</label>
-				
-                <input type="file" name="PhotoEtape4" /><br />
+					<textarea class="texteEtape" type="text" name="TexteEtape4"></textarea>
+				</p>
+            </div>
 				
 
-				<label>
-					Texte Etape 5: 
-				</label>
-				
-				<input type="text" name="TexteEtape5"/><br/>
-				
-				<label>
-					Photo Etape 5 : 
-				</label><br />
-				
-                <input type="file" name="PhotoEtape5" /><br /> 
-				
-				<label>
-					Texte Etape 6: 
-				</label>
-				
-				<input type="text" name="TexteEtape6"/><br/>
-				
-				<label>
-					Photo Etape 6 : 
-				</label><br />
-				
-                <input type="file" name="PhotoEtape6" /><br /> 
-				
-				<label>
-					Texte Etape 7: 
-				</label>
-				
-				<input type="text" name="TexteEtape7"/><br/>
-				
-				<label>
-					Photo Etape 7 : 
-				</label><br />
-				
-                <input type="file" name="PhotoEtape7" /><br /> 
-				
+			<div class="num5">
+				<p>
+					<label>
+					Photo Etape 5 : 				
+					</label>
 
+					<input type="file" name="PhotoEtape5" />
+				</p>
+				<p>
+					<label>
+					Texte Etape 5 : 
+					</label>
 
-				<label>
-					Texte Etape 8: 
-				</label>
+					<textarea class="texteEtape" type="text" name="TexteEtape5"></textarea>
+				</p>
+			</div>
 				
-				<input type="text" name="TexteEtape8"/><br/>
-				
-				<label>
-					Photo Etape 8 : 
-				</label><br />
-				
-                <input type="file" name="PhotoEtape8" /><br /> 
-				
+			<div class="num6">
+				<p>
+					<label>
+					Photo Etape 6 : 				
+					</label>
 
+					<input type="file" name="PhotoEtape6" />
+				</p>
+				<p>
+					<label>
+					Texte Etape 6 : 
+					</label>
+
+					<textarea class="texteEtape" type="text" name="TexteEtape6"></textarea>
+				</p>
+			</div>
+				
+			<div class="num7">
+				<p>
+					<label>
+					Photo Etape 7 : 				
+					</label>
+
+					<input type="file" name="PhotoEtape7" />
+				</p>
+				<p>
+					<label>
+					Texte Etape 7 : 
+					</label>
+
+					<textarea class="texteEtape" type="text" name="TexteEtape7"></textarea>
+				</p>
+			</div> 
+
+			<div class="num8">
+				<p>
+					<label>
+					Photo Etape 8 : 				
+					</label>
+
+					<input type="file" name="PhotoEtape8" />
+				</p>
+				<p>
+					<label>
+					Texte Etape 8 : 
+					</label>
+
+					<textarea class="texteEtape" type="text" name="TexteEtape8"></textarea>
+				</p>
+			</div>
 			
-				<label>
-					Texte Etape 9: 
-				</label>
-				
-				<input type="text" name="TexteEtape9"/><br/>
-				
-				<label>
-					Photo Etape 9 : 
-				</label><br />
-				
-                <input type="file" name="PhotoEtape9" /><br /> 
-				
-				
-				<label>
-					Texte Etape 10: 
-				</label>
-				
-				<input type="text" name="TexteEtape10"/><br/>
-				
-				<label>
-					Photo Etape 10 : 
-				</label><br />
-				
-                <input type="file" name="PhotoEtape10"/><br /> <label>
+			<div class="num9">
+				<p>
+					<label>
+					Photo Etape 9 : 				
+					</label>
 
-                <label>
-					Texte Etape 11: 
-				</label>
+					<input type="file" name="PhotoEtape9" />
+				</p>
+				<p>
+					<label>
+					Texte Etape 9 : 
+					</label>
+ 
+					<textarea class="texteEtape" type="text" name="TexteEtape9"></textarea>
+				</p>
+			</div> 
 				
-				<input type="text" name="TexteEtape11"/><br/>
-				
-				<label>
-					Photo Etape 11 : 
-				</label><br />
-				
-                <input type="file" name="PhotoEtape11"/><br /> <label>
+			<div class="num10">
+				<p>
+					<label>
+					Photo Etape 10 : 				
+					</label>
 
-                		<label>
-					Texte Etape 12: 
-				</label>
-				
-				<input type="text" name="TexteEtape12"/><br/>
-				
-				<label>
-					Photo Etape 12 : 
-				</label><br />
-				
-                		<input type="file" name="PhotoEtape12"/><br /> <label>
+					<input type="file" name="PhotoEtape10" />
+				</p>
+				<p>
+					<label>
+					Texte Etape 10 : 
+					</label>
+
+					<textarea class="texteEtape" type="text" name="TexteEtape10"></textarea>
+				</p>
+			</div>
+               
+            <div class="num11">
+				<p>
+					<label>
+					Photo Etape 11 : 				
+					</label>
+
+					<input type="file" name="PhotoEtape11" />
+				</p>
+				<p>
+					<label>
+					Texte Etape 11 : 
+					</label>
+
+					<textarea class="texteEtape" type="text" name="TexteEtape11"></textarea>
+				</p>
+			</div>
+
+            <div class="num12">
+				<p>
+					<label>
+					Photo Etape 12 : 				
+					</label>
+
+					<input type="file" name="PhotoEtape12" />
+				</p>
+				<p>
+					<label>
+					Texte Etape 12 : 
+					</label>
+
+					<textarea class="texteEtape" type="text" name="TexteEtape12"></textarea>
+				</p>
+			</div>
 
 				<?php
-                if(isset($err_etape)){
-                    echo $err_etape;
-                }
+               		if(isset($err_etape)){
+                	echo $err_etape;
+                	}
             	?>
-
-
+		</div>
 				
-                <input type="submit" name="fichier" value="Envoyer les fichiers"/>
+            <input type="submit" name="fichier" value="Envoyer les fichiers"/>
         </p>
-</form>
+		</form>
 			
 	</body>
 </html>
