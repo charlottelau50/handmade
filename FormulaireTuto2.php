@@ -1,5 +1,6 @@
 
 <?php
+include 'fil.php';
 session_start();
 
 //traitement des donnes du formulaire en php pour rentré des tutos dans la base 
@@ -118,6 +119,8 @@ if(!empty($_POST)){
             $TexteEtape8 = (String) trim($TexteEtape8);
             $TexteEtape9 = (String) trim($TexteEtape9);
             $TexteEtape10 = (String) trim($TexteEtape10);
+		$TexteEtape11 = (String) trim($TexteEtape11);
+            $TexteEtape12 = (String) trim($TexteEtape12);
             $quantite_1 = (String) trim($quantite_1);
             $quantite_2 = (String) trim($quantite_2);
             $quantite_3 = (String) trim($quantite_3);
@@ -506,6 +509,30 @@ if(!empty($_POST)){
 				</label><br />
 				
                 <input type="file" name="PhotoEtape10"/><br /> <label>
+				
+				<label>
+					Texte Etape 11: 
+				</label>
+				
+				<input type="text" name="TexteEtape11"/><br/>
+				
+				<label>
+					Photo Etape 11 : 
+				</label><br />
+				
+                <input type="file" name="PhotoEtape11"/><br /> <label>
+
+                		<label>
+					Texte Etape 12: 
+				</label>
+				
+				<input type="text" name="TexteEtape12"/><br/>
+				
+				<label>
+					Photo Etape 12 : 
+				</label><br />
+				
+                		<input type="file" name="PhotoEtape12"/><br /> <label>
 
 				<?php
                 if(isset($err_etape)){
@@ -521,3 +548,6 @@ if(!empty($_POST)){
 			
 	</body>
 </html>
+<?php
+include 'bas.php';
+?>
