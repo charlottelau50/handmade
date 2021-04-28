@@ -57,7 +57,7 @@
 						$titretuto=$tuto['titreTuto'];
 						echo "<div class='liste-tuto-.$compteur'>";
 						echo "<p><a href='tuto.php?id=$idtuto'>$titretuto ";
-						echo "<img src='$image'	alt='présentation'/></a></p>";
+						echo "<img src='image/$image'	alt='présentation'/></a></p>";
 						$compteur++;
 						echo "</div>";
 
