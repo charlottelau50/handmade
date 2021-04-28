@@ -13,7 +13,7 @@
 
             include("fonctionBD.php");
 
-            $req_commentaire = $bdd->query("SELECT c.*, u.*, DATE_FORMAT(c.dateCommentaire, 'Le %d/%m/%Y') as date_c FROM commentaire c, utilisateur u, tuto t WHERE c.idutilisateur = u.idutilisateur AND t.idtuto = c.idtuto ORDER BY C.dateCommentaire DESC" ); 
+            $req_commentaire = $bdd->query("SELECT c.*, u.*, t.titreTuto DATE_FORMAT(c.dateCommentaire, 'Le %d/%m/%Y') as date_c FROM commentaire c, utilisateur u, tuto t WHERE c.idutilisateur = u.idutilisateur AND t.idtuto = c.idtuto ORDER BY C.dateCommentaire DESC" ); 
 
             $req_commentaire = $req_commentaire->fetchAll();
 
@@ -134,14 +134,14 @@
                         $req=$bdd->query("SELECT titreTuto, idtuto,theme FROM tuto ORDER BY theme");
                         while($tuto2=$req->fetch()){
                             $themetuto2=$tuto2['theme'];
-                            if ($themetuto2!==$themetuto and !empty($themetuto)){
+                            if ($themetuto2!==$themetuto and !empty($themetuto3)){
                                 echo "</optgroup>";
                                 echo "<optgroup label='$themetuto2'>";
                                 $titreTuto2=$tuto2['titreTuto'];
                                 $idtuto2=$tuto2['idtuto'];
                                 echo "<option value='$idtuto2'>$titreTuto2</option>";
                             }
-                            elseif($themetuto2==$themetuto and !empty($themetuto)){
+                            elseif($themetuto2==$themetuto and !empty($themetuto3)){
                                 $titreTuto2=$tuto2['titreTuto'];
                                 $idtuto2=$tuto2['idtuto'];
                                 $themetuto=$tuto2['theme'];
@@ -150,7 +150,7 @@
                             else{
                                 $titreTuto2=$tuto2['titreTuto'];
                                 $idtuto2=$tuto2['idtuto'];
-                                $themetuto=$tuto2['theme'];
+                                $themetuto3=$tuto2['theme'];
                                 echo "<optgroup label='$themetuto2'>";
                                 echo "<option value='$idtuto2'>$titreTuto2</option>";
 
@@ -172,7 +172,7 @@
                                     <?= "De " . $rc['pseudo'] ?>
                                 </td>
                                 <td class="list_com_tuto">
-                                    <?= " TUTO" . $rc['pseudo'] ?>
+                                    <?= " TUTO" . $rc['titreTuto'] ?>
                                 </td>
                                 <td class="list_com_note">
                                     <?= $rc['note_com'] . " / 5" ?>
