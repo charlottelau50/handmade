@@ -108,7 +108,6 @@
                             }
                         }
                         echo "</optgroup>";
-                        echo "<option value='tous'>tous</option>";
                         echo "</select>"
                         ?>
 
