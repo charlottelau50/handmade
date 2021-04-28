@@ -82,12 +82,33 @@
                      <?php
                         echo "<select name='idtuto'>";
                         $bdd = new PDO('mysql:host=localhost;dbname=projet;charset=utf8', 'root', '');
-                        $req=$bdd->query("SELECT titreTuto, idtuto FROM tuto ORDER BY theme");
+                        $req=$bdd->query("SELECT titreTuto, idtuto,theme FROM tuto ORDER BY theme");
                         while($tuto=$req->fetch()){
-                            $titreTuto=$tuto['titreTuto'];
-                            $idtuto=$tuto['idtuto'];
-                            echo "<option value='$idtuto'>$titreTuto</option>";
+                            $themetuto2=$tuto['theme'];
+                            if ($themetuto2!==$themetuto and !empty($themetuto)){
+                                echo "</optgroup>";
+                                echo "<optgroup label='$themetuto2'>";
+                                $titreTuto=$tuto['titreTuto'];
+                                $idtuto=$tuto['idtuto'];
+                                echo "<option value='$idtuto'>$titreTuto</option>";
+                            }
+                            elseif($themetuto2==$themetuto and !empty($themetuto)){
+                                $titreTuto=$tuto['titreTuto'];
+                                $idtuto=$tuto['idtuto'];
+                                $themetuto=$tuto['theme'];
+                                echo "<option value='$idtuto'>$titreTuto</option>";
+                            }
+                            else{
+                                $titreTuto=$tuto['titreTuto'];
+                                $idtuto=$tuto['idtuto'];
+                                $themetuto=$tuto['theme'];
+                                echo "<optgroup label='$themetuto2'>";
+                                echo "<option value='$idtuto'>$titreTuto</option>";
+
+                            }
                         }
+                        echo "</optgroup>";
+                        echo "<option value='tous'>tous</option>";
                         echo "</select>"
                         ?>
 
@@ -107,15 +128,35 @@
                 </form>
 		    
 		<form method="post" action="commentaire.php" class="formulaireSuggestions">
-                <?php
+               <?php
                         echo "<select name='idtuto2'>";
                         $bdd = new PDO('mysql:host=localhost;dbname=projet;charset=utf8', 'root', '');
-                        $req=$bdd->query("SELECT titreTuto, idtuto FROM tuto ORDER BY theme");
+                        $req=$bdd->query("SELECT titreTuto, idtuto,theme FROM tuto ORDER BY theme");
                         while($tuto2=$req->fetch()){
-                            $titreTuto2=$tuto2['titreTuto'];
-                            $idtuto2=$tuto2['idtuto'];
-                            echo "<option value='$idtuto2'>$titreTuto2</option>";
+                            $themetuto2=$tuto2['theme'];
+                            if ($themetuto2!==$themetuto and !empty($themetuto)){
+                                echo "</optgroup>";
+                                echo "<optgroup label='$themetuto2'>";
+                                $titreTuto2=$tuto2['titreTuto'];
+                                $idtuto2=$tuto2['idtuto'];
+                                echo "<option value='$idtuto2'>$titreTuto2</option>";
+                            }
+                            elseif($themetuto2==$themetuto and !empty($themetuto)){
+                                $titreTuto2=$tuto2['titreTuto'];
+                                $idtuto2=$tuto2['idtuto'];
+                                $themetuto=$tuto2['theme'];
+                                echo "<option value='$idtuto2'>$titreTuto2</option>";
+                            }
+                            else{
+                                $titreTuto2=$tuto2['titreTuto'];
+                                $idtuto2=$tuto2['idtuto'];
+                                $themetuto=$tuto2['theme'];
+                                echo "<optgroup label='$themetuto2'>";
+                                echo "<option value='$idtuto2'>$titreTuto2</option>";
+
+                            }
                         }
+                        echo "</optgroup>";
                         echo "<option value='tous'>tous</option>";
                         echo "</select>"
                         ?>
