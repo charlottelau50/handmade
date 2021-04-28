@@ -40,8 +40,8 @@
                     $valid = false;
                     $err_email = "<p style=\"color:#FF0000\";>Veuillez renseigner ce champs !</p>";
                 }else{
-                    $req = $bdd->prepare("SELECT idutilisateur FROM utilisateur WHERE mail = ?"); 
-                    $req->execute(array($mail)); 
+                    $req = $bdd->prepare("SELECT idutilisateur FROM utilisateur WHERE email = ?"); 
+                    $req->execute(array($email)); 
                     $utilisateur = $req->fetch();
                     if(isset($utilisateur['idutilisateur'])){
                         $valid = false;
